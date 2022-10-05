@@ -120,6 +120,9 @@ app.MapPut("/booking", async (BookingStatusDM inputBooking, BookingDb db) =>
     if(inputBooking.status == "Check Out"){
         booking.checkOutDate =  DateTime.Today;
     }
+    if(inputBooking.status == "Check In"){
+        booking.checkInDate =  DateTime.Today;
+    }
     booking.status = inputBooking.status;
     await db.SaveChangesAsync();
 
